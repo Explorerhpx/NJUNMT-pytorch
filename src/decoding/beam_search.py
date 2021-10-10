@@ -80,7 +80,7 @@ def beam_search(nmt_model, beam_size, max_steps, src_seqs, alpha=-1.0):
         # Get topK with beams
         # indices: [batch_size, ]
         _, indices = torch.topk(normed_scores, k=beam_size, dim=-1, largest=False, sorted=False)
-        next_beam_ids = torch.div(indices, vocab_size)  # [batch_size, ]
+        next_beam_ids = torch.floor_divide(indices, vocab_size)  # [batch_size, ]
         next_word_ids = indices % vocab_size  # [batch_size, ]
 
         # Re-arrange by new beam indices

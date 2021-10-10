@@ -724,6 +724,7 @@ def translate(FLAGS):
 
     valid_iterator = DataIterator(dataset=valid_dataset,
                                   batch_size=FLAGS.batch_size,
+                                  batching_func=FLAGS.batching_func,
                                   use_bucket=True, buffer_size=100000, numbering=True)
 
     INFO('Done. Elapsed time {0}'.format(timer.toc()))
@@ -846,6 +847,7 @@ def ensemble_translate(FLAGS):
 
     valid_iterator = DataIterator(dataset=valid_dataset,
                                   batch_size=FLAGS.batch_size,
+                                  batching_func=FLAGS.batching_func,
                                   use_bucket=True, buffer_size=100000, numbering=True)
 
     INFO('Done. Elapsed time {0}'.format(timer.toc()))

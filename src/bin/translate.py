@@ -18,6 +18,9 @@ parser.add_argument("--config_path", type=str,
 parser.add_argument("--batch_size", type=int, default=5,
                     help="""Batch size of beam search.""")
 
+parser.add_argument("--batching_func", type=str, default="samples",
+                    help="""The way to measure the size of a batch.""")
+
 parser.add_argument("--beam_size", type=int, default=5,
                     help="""Beam size.""")
 

@@ -82,7 +82,7 @@ def tensor_gather_helper(gather_indices,
     if GlobalNames.USE_GPU:
         range_ = range_.cuda()
 
-    gather_indices_ = (gather_indices + torch.unsqueeze(range_, 1)).view(-1)
+    gather_indices_ = (gather_indices + torch.unsqueeze(range_, 1)).view(-1).long()
 
     output = torch.index_select(gather_from.view(*gather_shape), 0, gather_indices_)
 
